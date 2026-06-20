@@ -55,6 +55,8 @@
             dateTimePicker2 = new DateTimePicker();
             lblBearerToken = new Label();
             richTextBox2 = new RichTextBox();
+            tbxEmail = new TextBox();
+            lblEmail = new Label();
             menuStrip1.SuspendLayout();
             grpClaims.SuspendLayout();
             grpAudience.SuspendLayout();
@@ -98,6 +100,8 @@
             // 
             // grpClaims
             // 
+            grpClaims.Controls.Add(tbxEmail);
+            grpClaims.Controls.Add(lblEmail);
             grpClaims.Controls.Add(dateTimePicker1);
             grpClaims.Controls.Add(textBox7);
             grpClaims.Controls.Add(textBox4);
@@ -112,42 +116,42 @@
             grpClaims.ForeColor = SystemColors.ActiveCaption;
             grpClaims.Location = new Point(29, 258);
             grpClaims.Name = "grpClaims";
-            grpClaims.Size = new Size(654, 244);
+            grpClaims.Size = new Size(654, 285);
             grpClaims.TabIndex = 0;
             grpClaims.TabStop = false;
             grpClaims.Text = "Claims";
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(128, 118);
+            dateTimePicker1.Location = new Point(141, 118);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(432, 28);
             dateTimePicker1.TabIndex = 13;
             // 
             // textBox7
             // 
-            textBox7.Location = new Point(128, 84);
+            textBox7.Location = new Point(141, 84);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(432, 28);
             textBox7.TabIndex = 12;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(128, 188);
+            textBox4.Location = new Point(141, 188);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(432, 28);
             textBox4.TabIndex = 9;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(128, 154);
+            textBox3.Location = new Point(141, 154);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(432, 28);
             textBox3.TabIndex = 8;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(128, 48);
+            textBox1.Location = new Point(141, 48);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(432, 28);
             textBox1.TabIndex = 6;
@@ -155,7 +159,7 @@
             // lblOrt
             // 
             lblOrt.AutoSize = true;
-            lblOrt.Location = new Point(6, 195);
+            lblOrt.Location = new Point(76, 195);
             lblOrt.Name = "lblOrt";
             lblOrt.Size = new Size(37, 21);
             lblOrt.TabIndex = 4;
@@ -204,7 +208,7 @@
             grpAudience.Controls.Add(richTextBox1);
             grpAudience.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             grpAudience.ForeColor = SystemColors.ActiveCaption;
-            grpAudience.Location = new Point(29, 529);
+            grpAudience.Location = new Point(29, 549);
             grpAudience.Name = "grpAudience";
             grpAudience.Size = new Size(654, 223);
             grpAudience.TabIndex = 1;
@@ -298,7 +302,7 @@
             lblBearerToken.AutoSize = true;
             lblBearerToken.Font = new Font("Arial", 10.8F, FontStyle.Bold);
             lblBearerToken.ForeColor = SystemColors.ActiveCaption;
-            lblBearerToken.Location = new Point(56, 778);
+            lblBearerToken.Location = new Point(56, 807);
             lblBearerToken.Name = "lblBearerToken";
             lblBearerToken.Size = new Size(127, 21);
             lblBearerToken.TabIndex = 12;
@@ -306,11 +310,27 @@
             // 
             // richTextBox2
             // 
-            richTextBox2.Location = new Point(189, 778);
+            richTextBox2.Location = new Point(189, 807);
             richTextBox2.Name = "richTextBox2";
             richTextBox2.Size = new Size(494, 120);
             richTextBox2.TabIndex = 13;
             richTextBox2.Text = "";
+            // 
+            // tbxEmail
+            // 
+            tbxEmail.Location = new Point(141, 234);
+            tbxEmail.Name = "tbxEmail";
+            tbxEmail.Size = new Size(432, 28);
+            tbxEmail.TabIndex = 15;
+            // 
+            // lblEmail
+            // 
+            lblEmail.AutoSize = true;
+            lblEmail.Location = new Point(76, 237);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(59, 21);
+            lblEmail.TabIndex = 14;
+            lblEmail.Text = "Email";
             // 
             // Form1
             // 
@@ -368,5 +388,7 @@
         private DateTimePicker dateTimePicker2;
         private Label lblBearerToken;
         private RichTextBox richTextBox2;
+        private TextBox tbxEmail;
+        private Label lblEmail;
     }
 }

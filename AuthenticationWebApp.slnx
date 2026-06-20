@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="../AuthenticationApp/AuthenticationApp/AuthenticationApp.csproj" />
+  <Project Path="Authentication_Data/Authentication_Data.csproj" Id="7f6c039f-2278-433e-8d63-98cc689669ff" />
   <Project Path="Authentication_UI/Authentication_UI.csproj" Id="9dbec739-8551-41c2-a100-dbf61147aa8a" />
 </Solution>
