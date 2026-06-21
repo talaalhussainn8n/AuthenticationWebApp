@@ -23,12 +23,12 @@ jobs:
         dotnet-version: '10.0.x'
 
     - name: Restore dependencies
-      run: dotnet restore AuthenticationWebApp.slnx
+      run: dotnet restore Authentication_UI/Authentication_UI.csproj
 
     - name: Build
-      run: dotnet build AuthenticationWebApp.slnx
+      run: dotnet build Authentication_UI/Authentication_UI.csproj
 
     - name: Test
-      run: dotnet test AuthenticationWebApp.slnx
+      run: dotnet test Authentication_UI/Authentication_UI.csproj
 
 
