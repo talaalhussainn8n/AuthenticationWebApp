@@ -1,6 +1,10 @@
 name: Build AuthenticationWebApp
 
 on: 
+  push:
+    branches:
+      - features/*
+      
   pull_request:
     branches:
       - main
