@@ -3,7 +3,7 @@ name: Build AuthenticationWebApp
 on: 
   push:
     branches:
-      - features/thussain/*
+      - main
       
   pull_request:
     branches:
@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     
     - name: 'Checkout code'
@@ -23,12 +23,12 @@ jobs:
         dotnet-version: '10.0.x'
 
     - name: Restore dependencies
-      run: dotnet restore
-    
+      run: dotnet restore Authentication_UI/Authentication_UI.csproj
+
     - name: Build
-      run: dotnet build 
-    
+      run: dotnet build Authentication_UI/Authentication_UI.csproj
+
     - name: Test
-      run: dotnet test 
+      run: dotnet test Authentication_UI/Authentication_UI.csproj
 
 
