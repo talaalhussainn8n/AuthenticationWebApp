@@ -19,4 +19,5 @@ public class Login
 
     [StringLength(100, MinimumLength = 6, ErrorMessage = "Das Passwort muss zwischen 6 und 100 Zeichen lang sein.")]
     public required string Ort { get; set; }
+
 }
