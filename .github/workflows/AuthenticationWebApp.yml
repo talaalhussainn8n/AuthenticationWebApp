@@ -3,7 +3,7 @@ name: Build AuthenticationWebApp
 on: 
   push:
     branches:
-      - features/*
+      - features/thussain/*
       
   pull_request:
     branches:
