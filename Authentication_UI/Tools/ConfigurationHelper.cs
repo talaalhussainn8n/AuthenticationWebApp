@@ -25,7 +25,7 @@ public static class ConfigurationHelper
 
     public static string GetOpenAiApiKey()
     {
-        var apiKey = Configuration["OpenAI:ApiKey"];
+        var apiKey = Configuration["ApiKey"];
 
         if (string.IsNullOrEmpty(apiKey))
         {
