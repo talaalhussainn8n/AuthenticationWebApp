@@ -1,4 +1,4 @@
-﻿namespace Authentication_UI
+﻿namespace AuthenticationUI
 {
     partial class Form1
     {

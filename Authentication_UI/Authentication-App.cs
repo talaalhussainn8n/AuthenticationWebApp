@@ -1,4 +1,4 @@
-namespace Authentication_UI;
+namespace AuthenticationUI;
 
 public partial class Form1 : Form
 {
@@ -27,7 +27,7 @@ public partial class Form1 : Form
 
     private void aIToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        var aiApp = new AuthenticationUI.AiApp();
+        var aiApp = new AiApp();
         aiApp.ShowDialog();
     }
 }
