@@ -1,4 +1,5 @@
 ﻿using Authentication_Data;
+using Authentication_UI.Tools;
 
 namespace Authentication_UI
 {
@@ -11,9 +12,14 @@ namespace Authentication_UI
             FillModels();
         }
 
-        private void btnGenerate_Click(object sender, EventArgs e)
+        private void btnGenerate_Click()
         {
+            var prompt = tbxPrompt.Text;
+            var model = $"{cmbModels.SelectedItem}";
 
+            var chatBotClient = new ChatBot(model, prompt);
+
+            tbxAusgabe.Text = Task.Run(chatBotClient.GetResponseAsync).Result;
         }
 
         private void FillModels()
@@ -27,7 +33,10 @@ namespace Authentication_UI
                 OpenAiModels.O4Mini
             };
 
-            cmbModels.Items.AddRange(models);
+            foreach (var model in models)
+            {
+                cmbModels.Items.Add(model);
+            }
         }
     }
 }

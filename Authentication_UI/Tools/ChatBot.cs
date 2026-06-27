@@ -1,9 +1,20 @@
-﻿namespace Authentication_UI.Tools;
+﻿using OpenAI.Chat;
 
-public class ChatBot
+namespace Authentication_UI.Tools;
+
+public class ChatBot(string model, string prompt)
 {
-    public ChatBot()
+    public string Model { get; set; } = model;
+
+    public string Prompt { get; set; } = prompt;
+
+    public string ApiKey { get; } = ConfigurationHelper.GetOpenAiApiKey();
+
+    public async Task<string> GetResponseAsync()
     {
-        
+        var openAiClient = new ChatClient(Model, ApiKey);
+       
+        var response = await openAiClient.CompleteChatAsync(Prompt);
+        return response.Value.Content[0].Text;
     }
 }

@@ -123,7 +123,6 @@
             btnGenerate.TabIndex = 16;
             btnGenerate.Text = "Generate";
             btnGenerate.UseVisualStyleBackColor = true;
-            btnGenerate.Click += btnGenerate_Click;
             // 
             // AiApp
             // 
