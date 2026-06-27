@@ -1,7 +1,7 @@
 ﻿using Authentication_Data;
-using Authentication_UI.Tools;
+using AuthenticationUI.Tools;
 
-namespace Authentication_UI
+namespace AuthenticationUI
 {
     public partial class AiApp : Form
     {
@@ -12,15 +12,6 @@ namespace Authentication_UI
             FillModels();
         }
 
-        private void btnGenerate_Click()
-        {
-            var prompt = tbxPrompt.Text;
-            var model = $"{cmbModels.SelectedItem}";
-
-            var chatBotClient = new ChatBot(model, prompt);
-
-            tbxAusgabe.Text = Task.Run(chatBotClient.GetResponseAsync).Result;
-        }
 
         private void FillModels()
         {
@@ -37,6 +28,11 @@ namespace Authentication_UI
             {
                 cmbModels.Items.Add(model);
             }
+        }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

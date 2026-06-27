@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 
-namespace Authentication_UI.Tools;
+namespace AuthenticationUI.Tools;
 
 public static class ConfigurationHelper
 {

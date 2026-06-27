@@ -1,6 +1,6 @@
-﻿using OpenAI.Chat;
+﻿ using OpenAI.Chat;
 
-namespace Authentication_UI.Tools;
+namespace AuthenticationUI.Tools;
 
 public class ChatBot(string model, string prompt)
 {

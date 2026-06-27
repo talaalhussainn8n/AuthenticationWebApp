@@ -1,4 +1,4 @@
-﻿namespace Authentication_UI
+﻿namespace AuthenticationUI
 {
     partial class AiApp
     {
@@ -96,22 +96,17 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(144, 294);
-            textBox1.Multiline = true;
+            textBox1.Location = new Point(0, 0);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(563, 102);
-            textBox1.TabIndex = 15;
+            textBox1.Size = new Size(100, 27);
+            textBox1.TabIndex = 17;
             // 
             // lblAusgabe
             // 
-            lblAusgabe.AutoSize = true;
-            lblAusgabe.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblAusgabe.ForeColor = SystemColors.ActiveCaption;
-            lblAusgabe.Location = new Point(62, 336);
+            lblAusgabe.Location = new Point(0, 0);
             lblAusgabe.Name = "lblAusgabe";
-            lblAusgabe.Size = new Size(70, 20);
-            lblAusgabe.TabIndex = 14;
-            lblAusgabe.Text = "Ausgabe";
+            lblAusgabe.Size = new Size(100, 23);
+            lblAusgabe.TabIndex = 18;
             // 
             // btnGenerate
             // 
@@ -123,6 +118,7 @@
             btnGenerate.TabIndex = 16;
             btnGenerate.Text = "Generate";
             btnGenerate.UseVisualStyleBackColor = true;
+            btnGenerate.Click += btnGenerate_Click;
             // 
             // AiApp
             // 

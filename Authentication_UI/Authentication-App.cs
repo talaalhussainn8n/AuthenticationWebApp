@@ -27,7 +27,7 @@ public partial class Form1 : Form
 
     private void aIToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        var aiApp = new AiApp();
+        var aiApp = new AuthenticationUI.AiApp();
         aiApp.ShowDialog();
     }
 }
