@@ -28,11 +28,25 @@ namespace AuthenticationUI
             {
                 cmbModels.Items.Add(model);
             }
+
+            cmbModels.SelectedIndex = 0;
         }
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
+            var prompt = tbxPrompt.Text;
+            var model = $"{cmbModels.SelectedItem}";
 
+            if(string.IsNullOrEmpty(prompt) || string.IsNullOrEmpty(model))
+            {
+                MessageBox.Show(@"Please enter a prompt and select a model.", @"Textboxen leer", MessageBoxButtons.OKCancel);
+                return;
+            }
+
+            var chatBot = new ChatBot(model, prompt);
+            tbxOutput.Text = Task.Run(chatBot.GetResponseAsync).Result;
+
+            tbxPrompt.Clear();
         }
     }
 }

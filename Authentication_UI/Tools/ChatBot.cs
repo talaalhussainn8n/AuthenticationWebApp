@@ -13,7 +13,8 @@ public class ChatBot(string model, string prompt)
     public async Task<string> GetResponseAsync()
     {
         var openAiClient = new ChatClient(Model, ApiKey);
-       
+
+
         var response = await openAiClient.CompleteChatAsync(Prompt);
         return response.Value.Content[0].Text;
     }
