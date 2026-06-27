@@ -1,4 +1,4 @@
-﻿namespace Authentication_UI
+﻿namespace AuthenticationUI
 {
     partial class Form1
     {
@@ -57,6 +57,7 @@
             btnVerschluesseln = new Button();
             lblBearerToken = new Label();
             richTextBox2 = new RichTextBox();
+            aIToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             grpClaims.SuspendLayout();
             grpAudience.SuspendLayout();
@@ -66,7 +67,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { dateiToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { dateiToolStripMenuItem, aIToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(736, 28);
@@ -87,16 +88,18 @@
             neuStartenToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             neuStartenToolStripMenuItem.ForeColor = SystemColors.ActiveCaption;
             neuStartenToolStripMenuItem.Name = "neuStartenToolStripMenuItem";
-            neuStartenToolStripMenuItem.Size = new Size(175, 26);
+            neuStartenToolStripMenuItem.Size = new Size(224, 26);
             neuStartenToolStripMenuItem.Text = "Neu starten";
+            neuStartenToolStripMenuItem.Click += neuStartenToolStripMenuItem_Click;
             // 
             // beendenToolStripMenuItem
             // 
             beendenToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             beendenToolStripMenuItem.ForeColor = SystemColors.ActiveCaption;
             beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            beendenToolStripMenuItem.Size = new Size(175, 26);
+            beendenToolStripMenuItem.Size = new Size(224, 26);
             beendenToolStripMenuItem.Text = "Beenden";
+            beendenToolStripMenuItem.Click += beendenToolStripMenuItem_Click;
             // 
             // grpClaims
             // 
@@ -332,6 +335,15 @@
             richTextBox2.TabIndex = 13;
             richTextBox2.Text = "";
             // 
+            // aIToolStripMenuItem
+            // 
+            aIToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            aIToolStripMenuItem.ForeColor = SystemColors.ActiveCaption;
+            aIToolStripMenuItem.Name = "aIToolStripMenuItem";
+            aIToolStripMenuItem.Size = new Size(39, 24);
+            aIToolStripMenuItem.Text = "AI";
+            aIToolStripMenuItem.Click += aIToolStripMenuItem_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -390,5 +402,6 @@
         private RichTextBox richTextBox2;
         private TextBox tbxEmail;
         private Label lblEmail;
+        private ToolStripMenuItem aIToolStripMenuItem;
     }
 }
