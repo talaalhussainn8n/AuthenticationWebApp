@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Text;
 
 namespace AuthenticationUI.Tools;
 
@@ -27,30 +28,41 @@ public class ProjectTools(string projectRoot)
         return "Datei gespeichert.";
     }
 
-    public string ListFiles()
+    public string CreateClass(string className, string namespaceName, string relativePath, List<(string Name, string Type)>? properties = null)
     {
-        return string.Join(Environment.NewLine,
-            Directory.GetFiles(ProjectRoot, "*.cs", SearchOption.AllDirectories)
-                     .Select(x => Path.GetRelativePath(ProjectRoot, x)));
-    }
+        try
+        {
+            var fullPath = Path.Combine(ProjectRoot, relativePath, $"{className}.cs");
+            var directory = Path.GetDirectoryName(fullPath);
 
-    public string Build()
-    {
-        Process process = new();
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory!);
+            }
 
-        process.StartInfo.FileName = "dotnet";
-        process.StartInfo.Arguments = "build";
-        process.StartInfo.WorkingDirectory = ProjectRoot;
-        process.StartInfo.RedirectStandardOutput = true;
-        process.StartInfo.RedirectStandardError = true;
+            var classContent = new StringBuilder();
+            classContent.AppendLine($"namespace {namespaceName};");
+            classContent.AppendLine();
+            classContent.AppendLine($"public class {className}");
+            classContent.AppendLine("{");
 
-        process.Start();
+            if (properties is { Count: > 0 })
+            {
+                foreach (var (name, type) in properties)
+                {
+                    classContent.AppendLine($"public {type} {name} {{ get; set; }}");
+                }
+            }
 
-        var output = process.StandardOutput.ReadToEnd();
-        output += process.StandardError.ReadToEnd();
+            classContent.AppendLine("}");
 
-        process.WaitForExit();
+            File.WriteAllText(fullPath, classContent.ToString());
 
-        return output;
+            return $"Klasse '{className}' wurde erfolgreich erstellt unter: {relativePath}";
+        }
+        catch (Exception ex)
+        {
+            return $"Fehler beim Erstellen der Klasse: {ex.Message}";
+        }
     }
 }

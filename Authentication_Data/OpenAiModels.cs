@@ -1,4 +1,4 @@
-﻿namespace Authentication_Data;
+﻿namespace AuthenticationData;
 
 public static class OpenAiModels
 {
