@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace AuthenticationUI;
 
 public partial class Form1 : Form
@@ -29,5 +31,10 @@ public partial class Form1 : Form
     {
         var aiApp = new AiApp();
         aiApp.ShowDialog();
+    }
+
+    private void btnVerschluesseln_Click(object sender, EventArgs e)
+    {
+        tbxVerschluesselung.Text = Convert.ToBase64String(Encoding.UTF8.GetBytes(tbxKey.Text));
     }
 }

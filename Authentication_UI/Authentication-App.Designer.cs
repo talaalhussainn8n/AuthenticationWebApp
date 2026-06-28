@@ -32,6 +32,7 @@
             dateiToolStripMenuItem = new ToolStripMenuItem();
             neuStartenToolStripMenuItem = new ToolStripMenuItem();
             beendenToolStripMenuItem = new ToolStripMenuItem();
+            aIToolStripMenuItem = new ToolStripMenuItem();
             grpClaims = new GroupBox();
             tbxEmail = new TextBox();
             lblEmail = new Label();
@@ -49,7 +50,7 @@
             dateTimePicker2 = new DateTimePicker();
             lblExpiers = new Label();
             richTextBox1 = new RichTextBox();
-            textBox2 = new TextBox();
+            tbxKey = new TextBox();
             lblKey = new Label();
             tbxVerschluesselung = new TextBox();
             label2 = new Label();
@@ -57,7 +58,6 @@
             btnVerschluesseln = new Button();
             lblBearerToken = new Label();
             richTextBox2 = new RichTextBox();
-            aIToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             grpClaims.SuspendLayout();
             grpAudience.SuspendLayout();
@@ -88,7 +88,7 @@
             neuStartenToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             neuStartenToolStripMenuItem.ForeColor = SystemColors.ActiveCaption;
             neuStartenToolStripMenuItem.Name = "neuStartenToolStripMenuItem";
-            neuStartenToolStripMenuItem.Size = new Size(224, 26);
+            neuStartenToolStripMenuItem.Size = new Size(175, 26);
             neuStartenToolStripMenuItem.Text = "Neu starten";
             neuStartenToolStripMenuItem.Click += neuStartenToolStripMenuItem_Click;
             // 
@@ -97,9 +97,18 @@
             beendenToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             beendenToolStripMenuItem.ForeColor = SystemColors.ActiveCaption;
             beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            beendenToolStripMenuItem.Size = new Size(224, 26);
+            beendenToolStripMenuItem.Size = new Size(175, 26);
             beendenToolStripMenuItem.Text = "Beenden";
             beendenToolStripMenuItem.Click += beendenToolStripMenuItem_Click;
+            // 
+            // aIToolStripMenuItem
+            // 
+            aIToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            aIToolStripMenuItem.ForeColor = SystemColors.ActiveCaption;
+            aIToolStripMenuItem.Name = "aIToolStripMenuItem";
+            aIToolStripMenuItem.Size = new Size(39, 24);
+            aIToolStripMenuItem.Text = "AI";
+            aIToolStripMenuItem.Click += aIToolStripMenuItem_Click;
             // 
             // grpClaims
             // 
@@ -258,12 +267,13 @@
             richTextBox1.TabIndex = 0;
             richTextBox1.Text = "";
             // 
-            // textBox2
+            // tbxKey
             // 
-            textBox2.Location = new Point(189, 39);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(432, 28);
-            textBox2.TabIndex = 8;
+            tbxKey.ForeColor = SystemColors.ActiveCaption;
+            tbxKey.Location = new Point(189, 39);
+            tbxKey.Name = "tbxKey";
+            tbxKey.Size = new Size(432, 28);
+            tbxKey.TabIndex = 8;
             // 
             // lblKey
             // 
@@ -276,6 +286,7 @@
             // 
             // tbxVerschluesselung
             // 
+            tbxVerschluesselung.ForeColor = SystemColors.ActiveCaption;
             tbxVerschluesselung.Location = new Point(189, 83);
             tbxVerschluesselung.Name = "tbxVerschluesselung";
             tbxVerschluesselung.ReadOnly = true;
@@ -294,7 +305,7 @@
             // grpEingabe
             // 
             grpEingabe.Controls.Add(btnVerschluesseln);
-            grpEingabe.Controls.Add(textBox2);
+            grpEingabe.Controls.Add(tbxKey);
             grpEingabe.Controls.Add(tbxVerschluesselung);
             grpEingabe.Controls.Add(lblKey);
             grpEingabe.Controls.Add(label2);
@@ -315,6 +326,7 @@
             btnVerschluesseln.TabIndex = 11;
             btnVerschluesseln.Text = "Verschlüsseln";
             btnVerschluesseln.UseVisualStyleBackColor = true;
+            btnVerschluesseln.Click += btnVerschluesseln_Click;
             // 
             // lblBearerToken
             // 
@@ -334,15 +346,6 @@
             richTextBox2.Size = new Size(494, 120);
             richTextBox2.TabIndex = 13;
             richTextBox2.Text = "";
-            // 
-            // aIToolStripMenuItem
-            // 
-            aIToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            aIToolStripMenuItem.ForeColor = SystemColors.ActiveCaption;
-            aIToolStripMenuItem.Name = "aIToolStripMenuItem";
-            aIToolStripMenuItem.Size = new Size(39, 24);
-            aIToolStripMenuItem.Text = "AI";
-            aIToolStripMenuItem.Click += aIToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -390,7 +393,7 @@
         private DateTimePicker dateTimePicker1;
         private GroupBox grpAudience;
         private RichTextBox richTextBox1;
-        private TextBox textBox2;
+        private TextBox tbxKey;
         private Label lblKey;
         private TextBox tbxVerschluesselung;
         private Label label2;
