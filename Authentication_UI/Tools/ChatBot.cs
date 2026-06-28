@@ -11,14 +11,6 @@ public class ChatBot(string model, string prompt)
 
     public string ApiKey { get; } = ConfigurationHelper.GetOpenAiApiKey();
 
-    public async Task<string> GetResponseAsync()
-    {
-        var openAiClient = new ChatClient(Model, ApiKey);
-
-        var response = await openAiClient.CompleteChatAsync(Prompt);
-        return response.Value.Content[0].Text;
-    }
-
     public async Task<string> GetResponseWithInformationAsync()
     {
         var client = new ChatClient(Model, ApiKey);
@@ -75,7 +67,10 @@ public class ChatBot(string model, string prompt)
             new UserChatMessage(Prompt)
         ];
 
-        var response = await client.CompleteChatAsync(messages, options);
+        var response = await client.CompleteChatAsync(
+            messages: messages,
+            options: options
+        );
 
         var message = response.Value;
 
