@@ -1,4 +1,4 @@
-﻿using Authentication_Data;
+﻿using AuthenticationData;
 using AuthenticationUI.Tools;
 
 namespace AuthenticationUI

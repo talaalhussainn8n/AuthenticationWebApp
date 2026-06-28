@@ -24,27 +24,51 @@ public class ChatBot(string model, string prompt)
         var client = new ChatClient(Model, ApiKey);
 
         var projectTools = new ProjectTools(@"C:\privates projekt\Backend\AuthenticationWebApp\Authentication_Data");
-
-        var readFileTool = ChatTool.CreateFunctionTool(
-            functionName: "ReadFile",
-            functionDescription: "Liest eine Datei aus dem Projekt.",
+        
+        var createClassTool = ChatTool.CreateFunctionTool(
+            functionName: "CreateClass",
+            functionDescription: Prompt,
             functionParameters: BinaryData.FromString("""
                                                       {
-                                                          "type":"object",
-                                                          "properties":
-                                                          {
-                                                              "path":
-                                                              {
-                                                                  "type":"string",
-                                                                  "description":"Relativer Pfad"
+                                                          "type": "object",
+                                                          "properties": {
+                                                              "className": {
+                                                                  "type": "string",
+                                                                  "description": "Name der Klasse"
+                                                              },
+                                                              "namespace": {
+                                                                  "type": "string",
+                                                                  "description": "Namespace der Klasse (z.B. AuthenticationData)"
+                                                              },
+                                                              "path": {
+                                                                  "type": "string",
+                                                                  "description": "Absoluter Pfad wo die Datei erstellt werden soll"
+                                                              },
+                                                              "properties": {
+                                                                  "type": "array",
+                                                                  "description": "Liste von Properties die zur Klasse hinzugefügt werden sollen",
+                                                                  "items": {
+                                                                      "type": "object",
+                                                                      "properties": {
+                                                                          "name": { 
+                                                                              "type": "string",
+                                                                              "description": "Name des Property"
+                                                                          },
+                                                                          "type": { 
+                                                                              "type": "string",
+                                                                              "description": "C# Datentyp des Property (z.B. string, int, bool)"
+                                                                          }
+                                                                      },
+                                                                      "required": ["name", "type"]
+                                                                  }
                                                               }
                                                           },
-                                                          "required":["path"]
+                                                          "required": ["className", "namespace", "path"]
                                                       }
                                                       """));
 
         var options = new ChatCompletionOptions();
-        options.Tools.Add(readFileTool);
+        options.Tools.Add(createClassTool);
 
         List<ChatMessage> messages =
         [
@@ -66,22 +90,32 @@ public class ChatBot(string model, string prompt)
 
         foreach (var toolCall in message.ToolCalls)
         {
-            if (toolCall.FunctionName == "ReadFile")
+            if (toolCall.FunctionName == "CreateClass")
             {
-                using var json =
-                    JsonDocument.Parse(toolCall.FunctionArguments);
+                using var json = JsonDocument.Parse(toolCall.FunctionArguments);
+                var className = json.RootElement.GetProperty("className").GetString()!;
+                var namespaceName = json.RootElement.GetProperty("namespace").GetString()!;
+                var path = json.RootElement.GetProperty("path").GetString()!;
 
-                var path =
-                    json.RootElement.GetProperty("path").GetString()!;
+                // Properties parsen (optional)
+                var properties = new List<(string Name, string Type)>();
+                if (json.RootElement.TryGetProperty("properties", out var propsElement))
+                {
+                    foreach (var prop in propsElement.EnumerateArray())
+                    {
+                        var propName = prop.GetProperty("name").GetString()!;
+                        var propType = prop.GetProperty("type").GetString()!;
+                        properties.Add((propName, propType));
+                    }
+                }
 
-                var fileContent =
-                    projectTools.ReadFile(path);
-
-                messages.Add(
-                    new ToolChatMessage(
-                        toolCall.Id,
-                        fileContent));
+                var result = projectTools.CreateClass(className, namespaceName, path, properties);
+                messages.Add(new ToolChatMessage(toolCall.Id, result));
             }
         }
+
+        // Zweite Anfrage mit Tool-Ergebnissen
+        var finalResponse = await client.CompleteChatAsync(messages, options);
+        return finalResponse.Value.Content[0].Text;
     }
 }

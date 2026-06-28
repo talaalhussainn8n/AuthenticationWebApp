@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Authentication_Data;
+namespace AuthenticationData;
 
 public class Login
 {
