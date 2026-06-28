@@ -44,7 +44,7 @@ namespace AuthenticationUI
             }
 
             var chatBot = new ChatBot(model, prompt);
-            tbxOutput.Text = Task.Run(chatBot.GetResponseAsync).Result;
+            tbxOutput.Text = Task.Run(chatBot.GetResponseWithInformationAsync).Result;
 
             tbxPrompt.Clear();
         }
