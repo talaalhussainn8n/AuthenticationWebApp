@@ -32,32 +32,33 @@
             dateiToolStripMenuItem = new ToolStripMenuItem();
             neuStartenToolStripMenuItem = new ToolStripMenuItem();
             beendenToolStripMenuItem = new ToolStripMenuItem();
+            aIToolStripMenuItem = new ToolStripMenuItem();
             grpClaims = new GroupBox();
             tbxEmail = new TextBox();
             lblEmail = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            textBox7 = new TextBox();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox1 = new TextBox();
+            dtGeburtstag = new DateTimePicker();
+            tbxName = new TextBox();
+            tbxOrt = new TextBox();
+            tbxPlz = new TextBox();
+            tbxVorname = new TextBox();
             lblOrt = new Label();
             lblPosteingang = new Label();
             lblGeburtstag = new Label();
             lblName = new Label();
             lblVorname = new Label();
             grpAudience = new GroupBox();
-            dateTimePicker2 = new DateTimePicker();
+            dtExpires = new DateTimePicker();
             lblExpiers = new Label();
-            richTextBox1 = new RichTextBox();
-            textBox2 = new TextBox();
-            lblKey = new Label();
+            tbxAudience = new RichTextBox();
             tbxVerschluesselung = new TextBox();
             label2 = new Label();
             grpEingabe = new GroupBox();
-            btnVerschluesseln = new Button();
+            btnErstellen = new Button();
             lblBearerToken = new Label();
-            richTextBox2 = new RichTextBox();
-            aIToolStripMenuItem = new ToolStripMenuItem();
+            tbxBearerToken = new RichTextBox();
+            btnGenerate = new Button();
+            btnCopy = new Button();
+            btnDelete = new Button();
             menuStrip1.SuspendLayout();
             grpClaims.SuspendLayout();
             grpAudience.SuspendLayout();
@@ -70,7 +71,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { dateiToolStripMenuItem, aIToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(736, 28);
+            menuStrip1.Size = new Size(726, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -88,7 +89,7 @@
             neuStartenToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             neuStartenToolStripMenuItem.ForeColor = SystemColors.ActiveCaption;
             neuStartenToolStripMenuItem.Name = "neuStartenToolStripMenuItem";
-            neuStartenToolStripMenuItem.Size = new Size(224, 26);
+            neuStartenToolStripMenuItem.Size = new Size(175, 26);
             neuStartenToolStripMenuItem.Text = "Neu starten";
             neuStartenToolStripMenuItem.Click += neuStartenToolStripMenuItem_Click;
             // 
@@ -97,19 +98,28 @@
             beendenToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             beendenToolStripMenuItem.ForeColor = SystemColors.ActiveCaption;
             beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            beendenToolStripMenuItem.Size = new Size(224, 26);
+            beendenToolStripMenuItem.Size = new Size(175, 26);
             beendenToolStripMenuItem.Text = "Beenden";
             beendenToolStripMenuItem.Click += beendenToolStripMenuItem_Click;
+            // 
+            // aIToolStripMenuItem
+            // 
+            aIToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            aIToolStripMenuItem.ForeColor = SystemColors.ActiveCaption;
+            aIToolStripMenuItem.Name = "aIToolStripMenuItem";
+            aIToolStripMenuItem.Size = new Size(39, 24);
+            aIToolStripMenuItem.Text = "AI";
+            aIToolStripMenuItem.Click += aIToolStripMenuItem_Click;
             // 
             // grpClaims
             // 
             grpClaims.Controls.Add(tbxEmail);
             grpClaims.Controls.Add(lblEmail);
-            grpClaims.Controls.Add(dateTimePicker1);
-            grpClaims.Controls.Add(textBox7);
-            grpClaims.Controls.Add(textBox4);
-            grpClaims.Controls.Add(textBox3);
-            grpClaims.Controls.Add(textBox1);
+            grpClaims.Controls.Add(dtGeburtstag);
+            grpClaims.Controls.Add(tbxName);
+            grpClaims.Controls.Add(tbxOrt);
+            grpClaims.Controls.Add(tbxPlz);
+            grpClaims.Controls.Add(tbxVorname);
             grpClaims.Controls.Add(lblOrt);
             grpClaims.Controls.Add(lblPosteingang);
             grpClaims.Controls.Add(lblGeburtstag);
@@ -126,6 +136,7 @@
             // 
             // tbxEmail
             // 
+            tbxEmail.ForeColor = SystemColors.ActiveCaption;
             tbxEmail.Location = new Point(141, 234);
             tbxEmail.Name = "tbxEmail";
             tbxEmail.Size = new Size(432, 28);
@@ -140,40 +151,44 @@
             lblEmail.TabIndex = 14;
             lblEmail.Text = "Email";
             // 
-            // dateTimePicker1
+            // dtGeburtstag
             // 
-            dateTimePicker1.Location = new Point(141, 118);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(432, 28);
-            dateTimePicker1.TabIndex = 13;
+            dtGeburtstag.Location = new Point(141, 118);
+            dtGeburtstag.Name = "dtGeburtstag";
+            dtGeburtstag.Size = new Size(432, 28);
+            dtGeburtstag.TabIndex = 13;
             // 
-            // textBox7
+            // tbxName
             // 
-            textBox7.Location = new Point(141, 84);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(432, 28);
-            textBox7.TabIndex = 12;
+            tbxName.ForeColor = SystemColors.ActiveCaption;
+            tbxName.Location = new Point(141, 84);
+            tbxName.Name = "tbxName";
+            tbxName.Size = new Size(432, 28);
+            tbxName.TabIndex = 12;
             // 
-            // textBox4
+            // tbxOrt
             // 
-            textBox4.Location = new Point(141, 188);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(432, 28);
-            textBox4.TabIndex = 9;
+            tbxOrt.ForeColor = SystemColors.ActiveCaption;
+            tbxOrt.Location = new Point(141, 188);
+            tbxOrt.Name = "tbxOrt";
+            tbxOrt.Size = new Size(432, 28);
+            tbxOrt.TabIndex = 9;
             // 
-            // textBox3
+            // tbxPlz
             // 
-            textBox3.Location = new Point(141, 154);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(432, 28);
-            textBox3.TabIndex = 8;
+            tbxPlz.ForeColor = SystemColors.ActiveCaption;
+            tbxPlz.Location = new Point(141, 154);
+            tbxPlz.Name = "tbxPlz";
+            tbxPlz.Size = new Size(432, 28);
+            tbxPlz.TabIndex = 8;
             // 
-            // textBox1
+            // tbxVorname
             // 
-            textBox1.Location = new Point(141, 48);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(432, 28);
-            textBox1.TabIndex = 6;
+            tbxVorname.ForeColor = SystemColors.ActiveCaption;
+            tbxVorname.Location = new Point(141, 48);
+            tbxVorname.Name = "tbxVorname";
+            tbxVorname.Size = new Size(432, 28);
+            tbxVorname.TabIndex = 6;
             // 
             // lblOrt
             // 
@@ -222,9 +237,9 @@
             // 
             // grpAudience
             // 
-            grpAudience.Controls.Add(dateTimePicker2);
+            grpAudience.Controls.Add(dtExpires);
             grpAudience.Controls.Add(lblExpiers);
-            grpAudience.Controls.Add(richTextBox1);
+            grpAudience.Controls.Add(tbxAudience);
             grpAudience.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             grpAudience.ForeColor = SystemColors.ActiveCaption;
             grpAudience.Location = new Point(29, 549);
@@ -234,12 +249,12 @@
             grpAudience.TabStop = false;
             grpAudience.Text = "Audience";
             // 
-            // dateTimePicker2
+            // dtExpires
             // 
-            dateTimePicker2.Location = new Point(123, 178);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(437, 28);
-            dateTimePicker2.TabIndex = 8;
+            dtExpires.Location = new Point(123, 178);
+            dtExpires.Name = "dtExpires";
+            dtExpires.Size = new Size(437, 28);
+            dtExpires.TabIndex = 8;
             // 
             // lblExpiers
             // 
@@ -250,33 +265,19 @@
             lblExpiers.TabIndex = 7;
             lblExpiers.Text = "Expires";
             // 
-            // richTextBox1
+            // tbxAudience
             // 
-            richTextBox1.Location = new Point(30, 27);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(530, 141);
-            richTextBox1.TabIndex = 0;
-            richTextBox1.Text = "";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(189, 39);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(432, 28);
-            textBox2.TabIndex = 8;
-            // 
-            // lblKey
-            // 
-            lblKey.AutoSize = true;
-            lblKey.Location = new Point(27, 42);
-            lblKey.Name = "lblKey";
-            lblKey.Size = new Size(45, 21);
-            lblKey.TabIndex = 7;
-            lblKey.Text = "Key";
+            tbxAudience.ForeColor = SystemColors.ActiveCaption;
+            tbxAudience.Location = new Point(30, 27);
+            tbxAudience.Name = "tbxAudience";
+            tbxAudience.Size = new Size(530, 141);
+            tbxAudience.TabIndex = 0;
+            tbxAudience.Text = "";
             // 
             // tbxVerschluesselung
             // 
-            tbxVerschluesselung.Location = new Point(189, 83);
+            tbxVerschluesselung.ForeColor = SystemColors.ActiveCaption;
+            tbxVerschluesselung.Location = new Point(160, 43);
             tbxVerschluesselung.Name = "tbxVerschluesselung";
             tbxVerschluesselung.ReadOnly = true;
             tbxVerschluesselung.Size = new Size(432, 28);
@@ -285,36 +286,35 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(27, 86);
+            label2.Location = new Point(30, 50);
             label2.Name = "label2";
-            label2.Size = new Size(156, 21);
+            label2.Size = new Size(95, 21);
             label2.TabIndex = 9;
-            label2.Text = "Verschlüsselung";
+            label2.Text = "Schlüssel";
             // 
             // grpEingabe
             // 
-            grpEingabe.Controls.Add(btnVerschluesseln);
-            grpEingabe.Controls.Add(textBox2);
+            grpEingabe.Controls.Add(btnErstellen);
             grpEingabe.Controls.Add(tbxVerschluesselung);
-            grpEingabe.Controls.Add(lblKey);
             grpEingabe.Controls.Add(label2);
             grpEingabe.Font = new Font("Arial", 10.8F, FontStyle.Bold);
             grpEingabe.ForeColor = SystemColors.ActiveCaption;
             grpEingabe.Location = new Point(29, 49);
             grpEingabe.Name = "grpEingabe";
-            grpEingabe.Size = new Size(654, 177);
+            grpEingabe.Size = new Size(639, 143);
             grpEingabe.TabIndex = 11;
             grpEingabe.TabStop = false;
             grpEingabe.Text = "Eingabe";
             // 
-            // btnVerschluesseln
+            // btnErstellen
             // 
-            btnVerschluesseln.Location = new Point(474, 130);
-            btnVerschluesseln.Name = "btnVerschluesseln";
-            btnVerschluesseln.Size = new Size(147, 29);
-            btnVerschluesseln.TabIndex = 11;
-            btnVerschluesseln.Text = "Verschlüsseln";
-            btnVerschluesseln.UseVisualStyleBackColor = true;
+            btnErstellen.Location = new Point(445, 94);
+            btnErstellen.Name = "btnErstellen";
+            btnErstellen.Size = new Size(147, 29);
+            btnErstellen.TabIndex = 11;
+            btnErstellen.Text = "Erstellen";
+            btnErstellen.UseVisualStyleBackColor = true;
+            btnErstellen.Click += btnVerschluesseln_Click;
             // 
             // lblBearerToken
             // 
@@ -327,30 +327,63 @@
             lblBearerToken.TabIndex = 12;
             lblBearerToken.Text = "Bearer Token";
             // 
-            // richTextBox2
+            // tbxBearerToken
             // 
-            richTextBox2.Location = new Point(189, 807);
-            richTextBox2.Name = "richTextBox2";
-            richTextBox2.Size = new Size(494, 120);
-            richTextBox2.TabIndex = 13;
-            richTextBox2.Text = "";
+            tbxBearerToken.Font = new Font("Arial", 10.8F, FontStyle.Bold);
+            tbxBearerToken.ForeColor = SystemColors.ActiveCaption;
+            tbxBearerToken.Location = new Point(189, 807);
+            tbxBearerToken.Name = "tbxBearerToken";
+            tbxBearerToken.Size = new Size(494, 120);
+            tbxBearerToken.TabIndex = 13;
+            tbxBearerToken.Text = "";
             // 
-            // aIToolStripMenuItem
+            // btnGenerate
             // 
-            aIToolStripMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            aIToolStripMenuItem.ForeColor = SystemColors.ActiveCaption;
-            aIToolStripMenuItem.Name = "aIToolStripMenuItem";
-            aIToolStripMenuItem.Size = new Size(39, 24);
-            aIToolStripMenuItem.Text = "AI";
-            aIToolStripMenuItem.Click += aIToolStripMenuItem_Click;
+            btnGenerate.Font = new Font("Arial", 10.8F, FontStyle.Bold);
+            btnGenerate.ForeColor = SystemColors.ActiveCaption;
+            btnGenerate.Location = new Point(536, 933);
+            btnGenerate.Name = "btnGenerate";
+            btnGenerate.Size = new Size(147, 29);
+            btnGenerate.TabIndex = 14;
+            btnGenerate.Text = "Generieren";
+            btnGenerate.UseVisualStyleBackColor = true;
+            btnGenerate.Click += btnGenerate_Click;
+            // 
+            // btnCopy
+            // 
+            btnCopy.Font = new Font("Arial", 10.8F, FontStyle.Bold);
+            btnCopy.ForeColor = SystemColors.ActiveCaption;
+            btnCopy.Location = new Point(189, 933);
+            btnCopy.Name = "btnCopy";
+            btnCopy.Size = new Size(147, 29);
+            btnCopy.TabIndex = 15;
+            btnCopy.Text = "Kopieren";
+            btnCopy.UseVisualStyleBackColor = true;
+            btnCopy.Click += btnCopy_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Enabled = false;
+            btnDelete.Font = new Font("Arial", 10.8F, FontStyle.Bold);
+            btnDelete.ForeColor = SystemColors.ActiveCaption;
+            btnDelete.Location = new Point(366, 933);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(147, 29);
+            btnDelete.TabIndex = 16;
+            btnDelete.Text = "Löschen";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.InactiveBorder;
-            ClientSize = new Size(736, 973);
-            Controls.Add(richTextBox2);
+            ClientSize = new Size(726, 1028);
+            Controls.Add(btnDelete);
+            Controls.Add(btnCopy);
+            Controls.Add(btnGenerate);
+            Controls.Add(tbxBearerToken);
             Controls.Add(lblBearerToken);
             Controls.Add(grpEingabe);
             Controls.Add(grpAudience);
@@ -378,30 +411,31 @@
         private ToolStripMenuItem neuStartenToolStripMenuItem;
         private ToolStripMenuItem beendenToolStripMenuItem;
         private GroupBox grpClaims;
-        private TextBox textBox7;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox1;
+        private TextBox tbxName;
+        private TextBox tbxOrt;
+        private TextBox tbxPlz;
+        private TextBox tbxVorname;
         private Label lblOrt;
         private Label lblPosteingang;
         private Label lblGeburtstag;
         private Label lblName;
         private Label lblVorname;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtGeburtstag;
         private GroupBox grpAudience;
-        private RichTextBox richTextBox1;
-        private TextBox textBox2;
-        private Label lblKey;
+        private RichTextBox tbxAudience;
         private TextBox tbxVerschluesselung;
         private Label label2;
         private GroupBox grpEingabe;
-        private Button btnVerschluesseln;
+        private Button btnErstellen;
         private Label lblExpiers;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker dtExpires;
         private Label lblBearerToken;
-        private RichTextBox richTextBox2;
+        private RichTextBox tbxBearerToken;
         private TextBox tbxEmail;
         private Label lblEmail;
         private ToolStripMenuItem aIToolStripMenuItem;
+        private Button btnGenerate;
+        private Button btnCopy;
+        private Button btnDelete;
     }
 }
