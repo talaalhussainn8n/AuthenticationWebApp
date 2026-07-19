@@ -69,8 +69,13 @@ public partial class Form1 : Form
 
     private void btnCopy_Click(object sender, EventArgs e)
     {
-        Clipboard.SetText(tbxBearerToken.Text, TextDataFormat.Text);
+        if (string.IsNullOrWhiteSpace(tbxBearerToken.Text))
+        {
+            MessageBox.Show(@"Es gibt keinen Bearer Token zum Kopieren.", @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
+        }
 
+        Clipboard.SetText(tbxBearerToken.Text, TextDataFormat.Text);
         MessageBox.Show(@"Der Bearer Token wurde in die Zwischenablage kopiert.", @"Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 }
