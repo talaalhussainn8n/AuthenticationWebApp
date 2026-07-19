@@ -35,9 +35,8 @@ public class JwtTokenTool
 
             return jwtToken;
         }
-        catch (ArgumentException e)
+        catch (ArgumentException)
         {
-            Console.WriteLine(e);
             throw;
         }
     }
