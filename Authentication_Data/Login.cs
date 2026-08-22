@@ -1,22 +1,33 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Security.Cryptography;
+using System.Text;
 
 namespace AuthenticationData;
 
-public class Login(string vorname, string name, string email, DateTime geburtsdatum, int postleitzahl, string ort)
+public class Login
 {
-    [StringLength(100, MinimumLength = 3, ErrorMessage = "Der Vorname muss zwischen 3 und 100 Zeichen lang sein.")]
-    public string Vorname { get; set; } = vorname;
+    public string Password { get; set; }
+    
+    public string Username { get; set; }
+    
+    public string EmailAdresse { get; set; }
 
-    [StringLength(100, MinimumLength = 3, ErrorMessage = "Der Name muss zwischen 3 und 100 Zeichen lang sein.")]
-    public string Name { get; set; } = name;
+    public string Phonenummer { get; set; }
 
-    [EmailAddress(ErrorMessage = "Bitte geben Sie eine gültige E-Mail-Adresse ein.")]
-    public string Email { get; set; } = email;
+    public string Benutzer { get; set; }
 
-    public DateTime Geburtsdatum { get; set; } = geburtsdatum;
+    public Login(string name, string emailAdresse, string telephonenummer, string pasword, string benutzer)
+    {
+        this.Username = name;
+        this.EmailAdresse = emailAdresse;
+        this.Phonenummer = telephonenummer;
+        this.Password = pasword;
+        this.Benutzer = benutzer;
+    }
 
-    public int Postleitzahl { get; set; } = postleitzahl;
-
-    [StringLength(100, MinimumLength = 6, ErrorMessage = "Das Passwort muss zwischen 6 und 100 Zeichen lang sein.")]
-    public string Ort { get; set; } = ort;
+    public static string GenerateHashedPassword(string password)
+    {
+        using var sha256 = SHA256.Create();
+        var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+        return Convert.ToBase64String(hashedBytes);
+    }
 }
