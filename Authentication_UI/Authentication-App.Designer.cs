@@ -34,18 +34,17 @@
             beendenToolStripMenuItem = new ToolStripMenuItem();
             aIToolStripMenuItem = new ToolStripMenuItem();
             grpClaims = new GroupBox();
+            cmbBenutzer = new ComboBox();
+            lblBenutzer = new Label();
+            cbShow = new CheckBox();
+            tbxTelefonnummer = new TextBox();
+            lablblTelefonnummer = new Label();
             tbxEmail = new TextBox();
             lblEmail = new Label();
-            dtGeburtstag = new DateTimePicker();
-            tbxName = new TextBox();
-            tbxOrt = new TextBox();
-            tbxPlz = new TextBox();
-            tbxVorname = new TextBox();
-            lblOrt = new Label();
-            lblPosteingang = new Label();
-            lblGeburtstag = new Label();
-            lblName = new Label();
-            lblVorname = new Label();
+            tbxPasswort = new TextBox();
+            tbxUsername = new TextBox();
+            lblPasswort = new Label();
+            lblUsername = new Label();
             grpAudience = new GroupBox();
             dtExpires = new DateTimePicker();
             lblExpiers = new Label();
@@ -113,31 +112,75 @@
             // 
             // grpClaims
             // 
+            grpClaims.Controls.Add(cmbBenutzer);
+            grpClaims.Controls.Add(lblBenutzer);
+            grpClaims.Controls.Add(cbShow);
+            grpClaims.Controls.Add(tbxTelefonnummer);
+            grpClaims.Controls.Add(lablblTelefonnummer);
             grpClaims.Controls.Add(tbxEmail);
             grpClaims.Controls.Add(lblEmail);
-            grpClaims.Controls.Add(dtGeburtstag);
-            grpClaims.Controls.Add(tbxName);
-            grpClaims.Controls.Add(tbxOrt);
-            grpClaims.Controls.Add(tbxPlz);
-            grpClaims.Controls.Add(tbxVorname);
-            grpClaims.Controls.Add(lblOrt);
-            grpClaims.Controls.Add(lblPosteingang);
-            grpClaims.Controls.Add(lblGeburtstag);
-            grpClaims.Controls.Add(lblName);
-            grpClaims.Controls.Add(lblVorname);
+            grpClaims.Controls.Add(tbxPasswort);
+            grpClaims.Controls.Add(tbxUsername);
+            grpClaims.Controls.Add(lblPasswort);
+            grpClaims.Controls.Add(lblUsername);
             grpClaims.Font = new Font("Arial", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             grpClaims.ForeColor = SystemColors.ActiveCaption;
             grpClaims.Location = new Point(29, 258);
             grpClaims.Name = "grpClaims";
-            grpClaims.Size = new Size(654, 285);
+            grpClaims.Size = new Size(685, 273);
             grpClaims.TabIndex = 0;
             grpClaims.TabStop = false;
             grpClaims.Text = "Claims";
             // 
+            // cmbBenutzer
+            // 
+            cmbBenutzer.ForeColor = SystemColors.ActiveCaption;
+            cmbBenutzer.FormattingEnabled = true;
+            cmbBenutzer.Location = new Point(152, 219);
+            cmbBenutzer.Name = "cmbBenutzer";
+            cmbBenutzer.Size = new Size(432, 29);
+            cmbBenutzer.TabIndex = 20;
+            // 
+            // lblBenutzer
+            // 
+            lblBenutzer.AutoSize = true;
+            lblBenutzer.Location = new Point(24, 222);
+            lblBenutzer.Name = "lblBenutzer";
+            lblBenutzer.Size = new Size(89, 21);
+            lblBenutzer.TabIndex = 19;
+            lblBenutzer.Text = "Benutzer";
+            // 
+            // cbShow
+            // 
+            cbShow.AutoSize = true;
+            cbShow.Location = new Point(600, 122);
+            cbShow.Name = "cbShow";
+            cbShow.Size = new Size(18, 17);
+            cbShow.TabIndex = 18;
+            cbShow.UseVisualStyleBackColor = true;
+            cbShow.CheckedChanged += cbShow_CheckedChanged;
+            // 
+            // tbxTelefonnummer
+            // 
+            tbxTelefonnummer.ForeColor = SystemColors.ActiveCaption;
+            tbxTelefonnummer.Location = new Point(152, 164);
+            tbxTelefonnummer.Name = "tbxTelefonnummer";
+            tbxTelefonnummer.Size = new Size(432, 28);
+            tbxTelefonnummer.TabIndex = 17;
+            // 
+            // lablblTelefonnummer
+            // 
+            lablblTelefonnummer.AutoSize = true;
+            lablblTelefonnummer.Location = new Point(24, 171);
+            lablblTelefonnummer.Name = "lablblTelefonnummer";
+            lablblTelefonnummer.Size = new Size(122, 21);
+            lablblTelefonnummer.TabIndex = 16;
+            lablblTelefonnummer.Text = "Tel. Nummer";
+            // 
             // tbxEmail
             // 
             tbxEmail.ForeColor = SystemColors.ActiveCaption;
-            tbxEmail.Location = new Point(141, 234);
+            tbxEmail.Location = new Point(152, 71);
             tbxEmail.Name = "tbxEmail";
             tbxEmail.Size = new Size(432, 28);
             tbxEmail.TabIndex = 15;
@@ -145,95 +188,45 @@
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(76, 237);
+            lblEmail.Location = new Point(87, 74);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(59, 21);
             lblEmail.TabIndex = 14;
             lblEmail.Text = "Email";
             // 
-            // dtGeburtstag
+            // tbxPasswort
             // 
-            dtGeburtstag.Location = new Point(141, 118);
-            dtGeburtstag.Name = "dtGeburtstag";
-            dtGeburtstag.Size = new Size(432, 28);
-            dtGeburtstag.TabIndex = 13;
+            tbxPasswort.ForeColor = SystemColors.ActiveCaption;
+            tbxPasswort.Location = new Point(152, 115);
+            tbxPasswort.Name = "tbxPasswort";
+            tbxPasswort.Size = new Size(432, 28);
+            tbxPasswort.TabIndex = 12;
             // 
-            // tbxName
+            // tbxUsername
             // 
-            tbxName.ForeColor = SystemColors.ActiveCaption;
-            tbxName.Location = new Point(141, 84);
-            tbxName.Name = "tbxName";
-            tbxName.Size = new Size(432, 28);
-            tbxName.TabIndex = 12;
+            tbxUsername.ForeColor = SystemColors.ActiveCaption;
+            tbxUsername.Location = new Point(152, 27);
+            tbxUsername.Name = "tbxUsername";
+            tbxUsername.Size = new Size(432, 28);
+            tbxUsername.TabIndex = 6;
             // 
-            // tbxOrt
+            // lblPasswort
             // 
-            tbxOrt.ForeColor = SystemColors.ActiveCaption;
-            tbxOrt.Location = new Point(141, 188);
-            tbxOrt.Name = "tbxOrt";
-            tbxOrt.Size = new Size(432, 28);
-            tbxOrt.TabIndex = 9;
+            lblPasswort.AutoSize = true;
+            lblPasswort.Location = new Point(43, 122);
+            lblPasswort.Name = "lblPasswort";
+            lblPasswort.Size = new Size(91, 21);
+            lblPasswort.TabIndex = 1;
+            lblPasswort.Text = "Passwort";
             // 
-            // tbxPlz
+            // lblUsername
             // 
-            tbxPlz.ForeColor = SystemColors.ActiveCaption;
-            tbxPlz.Location = new Point(141, 154);
-            tbxPlz.Name = "tbxPlz";
-            tbxPlz.Size = new Size(432, 28);
-            tbxPlz.TabIndex = 8;
-            // 
-            // tbxVorname
-            // 
-            tbxVorname.ForeColor = SystemColors.ActiveCaption;
-            tbxVorname.Location = new Point(141, 48);
-            tbxVorname.Name = "tbxVorname";
-            tbxVorname.Size = new Size(432, 28);
-            tbxVorname.TabIndex = 6;
-            // 
-            // lblOrt
-            // 
-            lblOrt.AutoSize = true;
-            lblOrt.Location = new Point(76, 195);
-            lblOrt.Name = "lblOrt";
-            lblOrt.Size = new Size(37, 21);
-            lblOrt.TabIndex = 4;
-            lblOrt.Text = "Ort";
-            // 
-            // lblPosteingang
-            // 
-            lblPosteingang.AutoSize = true;
-            lblPosteingang.Location = new Point(6, 161);
-            lblPosteingang.Name = "lblPosteingang";
-            lblPosteingang.Size = new Size(111, 21);
-            lblPosteingang.TabIndex = 3;
-            lblPosteingang.Text = "Postleitzahl";
-            // 
-            // lblGeburtstag
-            // 
-            lblGeburtstag.AutoSize = true;
-            lblGeburtstag.Location = new Point(6, 125);
-            lblGeburtstag.Name = "lblGeburtstag";
-            lblGeburtstag.Size = new Size(107, 21);
-            lblGeburtstag.TabIndex = 2;
-            lblGeburtstag.Text = "Geburtstag";
-            // 
-            // lblName
-            // 
-            lblName.AutoSize = true;
-            lblName.Location = new Point(6, 86);
-            lblName.Name = "lblName";
-            lblName.Size = new Size(103, 21);
-            lblName.TabIndex = 1;
-            lblName.Text = "Nachname";
-            // 
-            // lblVorname
-            // 
-            lblVorname.AutoSize = true;
-            lblVorname.Location = new Point(6, 51);
-            lblVorname.Name = "lblVorname";
-            lblVorname.Size = new Size(89, 21);
-            lblVorname.TabIndex = 0;
-            lblVorname.Text = "Vorname";
+            lblUsername.AutoSize = true;
+            lblUsername.Location = new Point(46, 30);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new Size(100, 21);
+            lblUsername.TabIndex = 0;
+            lblUsername.Text = "Username";
             // 
             // grpAudience
             // 
@@ -244,7 +237,7 @@
             grpAudience.ForeColor = SystemColors.ActiveCaption;
             grpAudience.Location = new Point(29, 549);
             grpAudience.Name = "grpAudience";
-            grpAudience.Size = new Size(654, 223);
+            grpAudience.Size = new Size(654, 234);
             grpAudience.TabIndex = 1;
             grpAudience.TabStop = false;
             grpAudience.Text = "Audience";
@@ -419,7 +412,7 @@
         private Label lblPosteingang;
         private Label lblGeburtstag;
         private Label lblName;
-        private Label lblVorname;
+        private Label lblUsername;
         private DateTimePicker dtGeburtstag;
         private GroupBox grpAudience;
         private RichTextBox tbxAudience;
@@ -433,9 +426,17 @@
         private RichTextBox tbxBearerToken;
         private TextBox tbxEmail;
         private Label lblEmail;
+        private TextBox tbxPasswort;
+        private TextBox tbxUsername;
+        private Label lblPasswort;
         private ToolStripMenuItem aIToolStripMenuItem;
         private Button btnGenerate;
         private Button btnCopy;
         private Button btnDelete;
+        private TextBox tbxTelefonnummer;
+        private Label lablblTelefonnummer;
+        private CheckBox cbShow;
+        private Label lblBenutzer;
+        private ComboBox cmbBenutzer;
     }
 }
